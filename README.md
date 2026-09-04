@@ -1,5 +1,7 @@
 # Buildings Sector — SharePoint Redesign
 
+**Live mockup:** https://bermelloajamil.github.io/buildings-sharepoint/
+
 Redesign of the Woolpert **Buildings Sector** SharePoint site
 (`https://woolpert.sharepoint.com/sites/Buildings_Sector`, page `SitePages/Sector-Wireframe.aspx`).
 
@@ -11,7 +13,7 @@ SharePoint comes after sign-off.
 
 | File | What it is |
 |---|---|
-| **[sharepoint-mockup.html](sharepoint-mockup.html)** | ⭐ The presentation mockup — open this in a browser. SharePoint chrome (blue suite bar, labeled app bar, BS-tile nav with right-aligned search, rounded floating content sheet with internal scroll, Copilot bubble) around the new page design. Interactive: nav dropdowns, app launcher, live calendar month paging. |
+| **[index.html](index.html)** | ⭐ The presentation mockup — open this in a browser. SharePoint chrome (blue suite bar, labeled app bar, BS-tile nav with right-aligned search, rounded floating content sheet with internal scroll, Copilot bubble) around the new page design. Interactive: nav dropdowns, app launcher, live calendar month paging. |
 | [assets/hero.webp](assets/hero.webp) | Hero photo (data center building at dusk). **Required by the mockup** — keep the `assets` folder next to the HTML when sharing/moving it. |
 | [design.md](design.md) | Full design specification (tokens, layout, all 7 cards, exact copy). §11 records the hero v2 revisions made during mockup review. |
 
@@ -30,7 +32,7 @@ Mockup is presentation-ready after several review rounds:
 
 ## To resume
 
-1. Open `sharepoint-mockup.html` in a browser to see where things stand.
+1. Open `index.html` in a browser (or the live site above) to see where things stand.
 2. Continue fine-tuning it, or move to the next phase: present it for approval. Once the design
    is signed off, ask Claude to generate a fresh SharePoint implementation guide against the
    final design (site theme + header/nav/footer settings, web-part mapping, what needs IT),
