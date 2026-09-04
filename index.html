@@ -18,7 +18,6 @@
     --bg-page: #F4F5F3;
     --bg-card: #FFFFFF;
     --bg-row: #F7F8F7;
-    --bg-footer: #101413;
 
     --text-primary: #1A1F1E;
     --text-secondary: #5C6461;
@@ -48,7 +47,7 @@
     --suite-bar: #0178D4;
     --suite-bar-hover: #1B86DC;
     --chrome-bg: #F4F4F4;
-    --appbar-w: 64px;
+    --appbar-w: 84px;
     --suite-h: 48px;
     --header-h: 56px;
     --shadow-sheet: 0 1.6px 3.6px rgba(0,0,0,0.10), 0 8px 22px rgba(0,0,0,0.10);
@@ -108,11 +107,11 @@
   .suite-avatar {
     width: 30px; height: 30px; border-radius: var(--radius-full);
     background: #E7E4E1; color: #6B6E71; overflow: hidden;
-    display: inline-flex; align-items: end; justify-content: center;
+    display: inline-flex; align-items: center; justify-content: center;
     margin: 0 12px 0 6px; flex: none; cursor: pointer;
     outline: 2px solid rgba(255,255,255,0.45); outline-offset: 1px;
   }
-  .suite-avatar svg { width: 24px; height: 24px; }
+  .suite-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
   /* ---- App launcher (waffle) flyout ---- */
   .waffle-panel {
@@ -140,9 +139,9 @@
     display: flex; flex-direction: column; align-items: center; padding-top: 14px; gap: 8px;
   }
   .app-bar button {
-    width: 56px; height: 52px; border-radius: 8px;
+    width: 72px; height: 62px; border-radius: 8px;
     display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
-    color: #565A5E; font-size: 10px; position: relative;
+    color: #565A5E; font-size: 10.5px; position: relative;
   }
   .app-bar button:hover { background: #E9E9E9; color: var(--text-primary); }
   .app-bar button.active { color: var(--green-800); font-weight: 600; }
@@ -150,7 +149,8 @@
     content: ""; position: absolute; left: -2px; top: 14px; bottom: 14px;
     width: 3px; border-radius: 3px; background: var(--green-800);
   }
-  .app-bar .icon { width: 19px; height: 19px; }
+  .app-bar .icon { width: 23px; height: 23px; }
+  .app-logo { width: 25px; height: 25px; border-radius: 5px; object-fit: contain; flex: none; }
 
   /* ---- Shell + floating page sheet (rounded corners, drop shadow) ---- */
   .sp-shell {
@@ -206,18 +206,6 @@
   }
   .more-btn:hover { background: var(--bg-row); color: var(--text-primary); }
 
-  .nav-search {
-    display: flex; align-items: center; gap: 8px; flex: none;
-    width: 240px; height: 36px; padding: 0 12px;
-    background: #FAFAFA; border: 1px solid var(--border); border-radius: var(--radius-input);
-    color: var(--text-muted);
-  }
-  .nav-search .icon { width: 15px; height: 15px; }
-  .nav-search input {
-    border: 0; outline: 0; background: transparent;
-    font: inherit; font-size: 13.5px; color: var(--text-primary); width: 100%;
-  }
-  .nav-search input::placeholder { color: var(--text-muted); }
   .site-nav > div { position: relative; }
   .site-nav a.nav-link {
     font-size: 14px; font-weight: 500; color: var(--text-secondary);
@@ -506,18 +494,17 @@
   .proj-img svg, .proj-img img { width: 100%; height: 100%; display: block; object-fit: cover; }
   .proj .row-title { margin-top: 10px; }
 
-  /* ---- Site footer ---- */
-  .footer { background: var(--bg-footer); color: #B9BFBC; margin-top: 8px; }
-  .footer-inner {
-    min-height: 72px; padding: 18px 0;
-    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  /* ---- Page meta (views, last updated, author) ---- */
+  .page-meta { padding: 40px 0 56px; }
+  .page-meta-inner {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 14px;
+    font-size: 15px; color: var(--text-secondary);
   }
-  .footer-brand { display: flex; align-items: center; gap: 10px; }
-  .footer-brand .site-logo { width: 30px; height: 30px; }
-  .footer-brand b { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 0.03em; }
-  .footer-links { display: flex; gap: 28px; font-size: 13px; }
-  .footer-links a:hover { color: #fff; }
-  .footer-copy { font-size: 13px; color: #9AA19E; }
+  .meta-item { display: inline-flex; align-items: center; gap: 7px; }
+  .meta-item .icon { width: 17px; height: 17px; color: var(--text-muted); }
+  .meta-dot { color: var(--text-muted); }
+
 
   /* ---- Full calendar modal ---- */
   .modal-backdrop {
@@ -778,7 +765,6 @@
     .media-track .proj { flex-basis: calc((100% - 20px) / 2); }
     .hero h1 { font-size: 52px; }
     .suite-center { display: none; }
-    .nav-search { width: 180px; }
   }
   @media (max-width: 760px) {
     body { overflow: auto; }
@@ -786,7 +772,7 @@
     .sp-shell { margin-left: 0; height: auto; padding: var(--suite-h) 0 0; }
     .page-sheet { height: auto; overflow-y: visible; border-radius: 0; box-shadow: none; }
     .site-header { border-radius: 0; }
-    .site-nav, .nav-search { display: none; }
+    .site-nav { display: none; }
     .grid { grid-template-columns: 1fr; }
     .media-track .proj { flex-basis: 100%; }
     .hero { height: auto; margin: 10px 10px 0; }
@@ -794,7 +780,6 @@
     .hero h1 { font-size: 44px; }
     .hero-search .btn-primary { display: none; }
     .hero-stats { gap: 20px; }
-    .footer-inner { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
@@ -835,6 +820,12 @@
     <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M19.5 4.5 11 13M9 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10.5" r="2.5"/></symbol>
     <symbol id="i-door" viewBox="0 0 24 24"><rect x="6" y="3.5" width="12" height="17" rx="1"/><circle cx="14.8" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M6 20.5h12"/></symbol>
+    <!-- layout blocks: one wide bar over two squares -->
+    <symbol id="i-build" viewBox="0 0 24 24">
+      <rect x="3.5" y="4" width="17" height="6.2" rx="1.6"/>
+      <rect x="3.5" y="13.3" width="7.4" height="6.7" rx="1.6"/>
+      <rect x="13.1" y="13.3" width="7.4" height="6.7" rx="1.6"/>
+    </symbol>
     <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m15 9-1.8 4.2L9 15l1.8-4.2z"/></symbol>
     <symbol id="i-media" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m11 9.6 4 2.4-4 2.4z"/></symbol>
     <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a3.6 3.6 0 0 1 4.9 4.2l-9 9a2.1 2.1 0 0 1-3-3l9-9a3.6 3.6 0 0 1-1.9-1.2z"/><path d="M6.5 3.5 9 6l-1.5 1.5L5 5"/></symbol>
@@ -877,7 +868,7 @@
     <button class="suite-btn" aria-label="Support"><svg class="icon"><use href="#i-headset"/></svg></button>
     <button class="suite-btn" aria-label="Settings"><svg class="icon"><use href="#i-gear"/></svg></button>
     <button class="suite-btn" aria-label="Help"><svg class="icon"><use href="#i-help"/></svg></button>
-    <span class="suite-avatar" title="Perez, Ivan"><svg><use href="#i-avatar"/></svg></span>
+    <span class="suite-avatar" title="Perez, Ivan"><img src="assets/user-ivan-perez.jpg" alt="Perez, Ivan"></span>
   </div>
 </div>
 
@@ -899,10 +890,10 @@
 
 <!-- ================= SharePoint left app bar ================= -->
 <nav class="app-bar" aria-label="SharePoint app bar">
-  <button class="active"><svg class="icon"><use href="#i-home"/></svg>Home</button>
+  <button class="active"><img class="app-logo" src="assets/woolpert-mark.png" alt="">Home</button>
   <button><svg class="icon"><use href="#i-compass"/></svg>Discover</button>
   <button><svg class="icon"><use href="#i-edit"/></svg>Publish</button>
-  <button><svg class="icon"><use href="#i-blocks"/></svg>Build</button>
+  <button><svg class="icon"><use href="#i-build"/></svg>Build</button>
   <button><svg class="icon"><use href="#i-cloud"/></svg>OneDrive</button>
 </nav>
 
@@ -917,46 +908,24 @@
       </a>
 
       <nav class="site-nav" id="siteNav">
-        <div><a class="nav-link active">Home</a></div>
+        <div><a class="nav-link active" href="https://woolpert.sharepoint.com/sites/Buildings_Sector" target="_blank" rel="noopener">Buildings Sector</a></div>
         <div>
-          <a class="nav-link" data-menu="m-resources">Resources <svg class="icon"><use href="#i-chev-down"/></svg></a>
-          <div class="nav-flyout" id="m-resources">
-            <a href="#">Discipline Standards</a>
-            <a href="#">Templates &amp; Guidelines</a>
-            <a href="#">Industry Links</a>
-            <a href="#">Software &amp; Tools</a>
+          <a class="nav-link" data-menu="m-disciplines">Disciplines <svg class="icon"><use href="#i-chev-down"/></svg></a>
+          <div class="nav-flyout" id="m-disciplines">
+            <a href="#">Architecture</a>
+            <a href="#">Interior</a>
+            <a href="#">Site Civil</a>
+            <a href="#">Structural</a>
+            <a href="#">MEP+FP</a>
+            <a href="#">UP+LA</a>
+            <a href="#">Project Management</a>
+            <a href="#">DDT</a>
           </div>
         </div>
-        <div>
-          <a class="nav-link" data-menu="m-projects">Projects <svg class="icon"><use href="#i-chev-down"/></svg></a>
-          <div class="nav-flyout" id="m-projects">
-            <a href="#">Featured Projects</a>
-            <a href="#">Project Directory</a>
-            <a href="#">Case Studies</a>
-          </div>
-        </div>
-        <div>
-          <a class="nav-link" data-menu="m-company">Company <svg class="icon"><use href="#i-chev-down"/></svg></a>
-          <div class="nav-flyout" id="m-company">
-            <a href="#">Leadership</a>
-            <a href="#">News &amp; Announcements</a>
-            <a href="#">Events Calendar</a>
-          </div>
-        </div>
-        <div>
-          <a class="nav-link" data-menu="m-help">Help <svg class="icon"><use href="#i-chev-down"/></svg></a>
-          <div class="nav-flyout" id="m-help">
-            <a href="#">Orientation Hub</a>
-            <a href="#">IT Onboarding</a>
-            <a href="#">Contact IT</a>
-          </div>
-        </div>
+        <div><a class="nav-link" href="#">Sector Documents</a></div>
+        <div><a class="nav-link" href="#">Building Teams</a></div>
       </nav>
 
-      <label class="nav-search">
-        <svg class="icon"><use href="#i-search"/></svg>
-        <input type="text" placeholder="Search this site">
-      </label>
       <button class="more-btn" aria-label="More options"><svg class="icon"><use href="#i-more"/></svg></button>
     </div>
   </header>
@@ -1338,21 +1307,15 @@
     </div>
   </main>
 
-  <!-- ================= Site footer ================= -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="site-logo"><svg class="icon"><use href="#i-building"/></svg></span>
-        <b>BUILDINGS SECTOR</b>
-      </div>
-      <nav class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Contact IT</a>
-      </nav>
-      <p class="footer-copy">© 2025 Buildings Sector. All rights reserved.</p>
+  <!-- ================= Page meta ================= -->
+  <section class="page-meta">
+    <div class="container page-meta-inner">
+      <span class="meta-item"><svg class="icon"><use href="#i-eye"/></svg> 4,848 Views</span>
+      <span class="meta-dot">&middot;</span>
+      <span class="meta-item">Last Updated: September 4, 2026</span>
     </div>
-  </footer>
+  </section>
+
 
 </div><!-- /page-sheet -->
 </div><!-- /sp-shell -->
